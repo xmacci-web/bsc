@@ -1,0 +1,118 @@
+.hero {
+    position: relative;
+
+    .limite--btn {
+        padding-top: var(--spacing-sm);
+    }
+
+    .hero__media {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80vh;
+        z-index: 1;
+        .swiper-pagination-bullets {
+            padding-top: 0;
+            position: relative;
+            bottom: 50px;
+            padding-bottom: var(--spacing-md);
+        }
+        img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        @media screen and (max-width: $breakpoint-ml) {
+            height: 70vh;
+        }
+    }
+
+    .hero__container {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--spacing-xxs);
+
+        height: 80vh;
+        color: var(--color-white);
+        p {
+            width: 45%;
+        }
+        h1,
+        p,
+        a {
+            margin: 0;
+        }
+
+        @media screen and (max-width: $breakpoint-ml) {
+            justify-content: flex-end;
+            align-items: flex-start;
+            width: 100%;
+            height: 70vh;
+            padding-bottom: 80px;
+            h1 {
+                padding: 0;
+            }
+            p {
+                width: 80%;
+            }
+        }
+        @media screen and (max-width: $breakpoint-sm) {
+            justify-content: flex-end;
+            align-items: flex-start;
+            width: 100%;
+            height: 70vh;
+            p {
+                display: none;
+            }
+        }
+    }
+}
+.hero {
+    h1 {
+        font-size: #{typo(45px, 60px)};
+        max-width: 75%;
+        padding-bottom: var(--spacing-lg);
+    }
+    .hero__media__contact {
+        height: 60vh;
+        transition: 0.6s ease-in-out;
+        @media screen and (max-width: $breakpoint-ml) {
+            padding-bottom: 0;
+        }
+        @media screen and (max-width: $breakpoint-ml) {
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(#070707, 0.2);
+                z-index: 2;
+                transition: 0.6s ease-in-out;
+            }
+        }
+        img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+    .hero__container__contact {
+        height: 60vh;
+        justify-content: flex-end;
+
+        @media screen and (max-width: $breakpoint-ml) {
+            padding-bottom: 0;
+        }
+    }
+}

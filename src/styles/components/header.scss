@@ -1,0 +1,198 @@
+/* ==========================================================================
+   header / component
+   ========================================================================== */
+
+.header {
+    --header-height: 100px;
+    padding: var(--spacing-sm) 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: transform 0.4s $ease-in-out-back;
+    height: var(--header-height);
+    &::before {
+        background-color: var(--color-white);
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+    .wrapper {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .header-is-hidden.is-scrolling-down:not(.nav-is-active) & {
+        transform: translateY(-100%);
+    }
+}
+
+.logo-site {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm);
+    position: relative;
+    z-index: 10;
+    text-transform: uppercase;
+    transform: scale(1);
+    transition: 0.6s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.header__toggle {
+    --bar-height: 3.5px;
+    --bar-width: 34px;
+    --bar-spacer: 6px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    width: var(--bar-width);
+    height: var(--bar-height);
+    z-index: 10;
+    span {
+        background-color: var(--color-black);
+        border-radius: 3px;
+        height: var(--bar-height);
+        width: 100%;
+        position: absolute;
+        top: calc(50% - var(--bar-height) / 2);
+        left: calc(50% - var(--bar-width) / 2);
+        transition: 0.2s all ease-out;
+
+        &:nth-child(1) {
+            top: calc(
+                50% - var(--bar-height) / 2 - var(--bar-height) -
+                    var(--bar-spacer)
+            );
+        }
+        &:nth-child(3) {
+            top: calc(
+                50% - var(--bar-height) / 2 + var(--bar-height) +
+                    var(--bar-spacer)
+            );
+        }
+    }
+    .nav-is-active & {
+        span {
+            top: calc(50% - var(--bar-height) / 2);
+            &:nth-child(1) {
+                transform: rotate(45deg);
+            }
+            &:nth-child(2) {
+                transform: scaleX(0);
+            }
+            &:nth-child(3) {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+    @media screen and (min-width: $breakpoint-md) {
+        display: none;
+    }
+}
+
+.nav-primary {
+    background-color: var(--color-white);
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 40%;
+
+    display: flex;
+    align-items: flex-start;
+
+    padding-top: var(--header-height);
+    transform: translateX(100%);
+
+    .nav-is-active & {
+        transform: translateX(0);
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        list-style: none;
+        padding: var(--spacing-xxs) 0 0 0;
+        margin: 0;
+        justify-content: flex-start;
+
+        width: 100%;
+        transform: translateX(70%);
+        transition: transform 1.2s $ease-out-sine;
+        .nav-is-active & {
+            transform: translateX(0);
+        }
+        a {
+            text-align: left;
+            display: block;
+        }
+
+        @media screen and (max-width: $breakpoint-md) {
+            padding: var(--spacing-md) 0 0 var(--spacing-md);
+
+            width: 100%;
+            gap: 5vh;
+        }
+    }
+
+    @media screen and (min-width: $breakpoint-md) {
+        display: block;
+        background: unset;
+        position: relative;
+        width: auto;
+        height: auto;
+        overflow-y: visible;
+        padding-top: 0;
+        transform: translateX(0);
+        z-index: 2;
+        ul {
+            flex-direction: row;
+            transform: translateX(0);
+        }
+    }
+}
+.link-item--underline {
+    position: relative;
+    padding-bottom: 6px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    &::after {
+        content: '';
+        background-color: var(--color-primary);
+        position: absolute;
+        height: 4px;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+
+        transform-origin: left center;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-out;
+    }
+
+    &:hover {
+        &::after {
+            transform: scaleX(1);
+            transition: transform 0.3s ease-out;
+        }
+    }
+}
+.nav-is-active body {
+    overflow: hidden;
+    @media screen and (min-width: $breakpoint-lg) {
+        overflow: visible;
+    }
+}

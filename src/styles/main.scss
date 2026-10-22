@@ -1,0 +1,46 @@
+//FONTS
+// ici sont chargés les fonts
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+// TOOLS
+// mixins et fonctions utilisés globalement dans le SCSS (Sass)
+@import 'tools/typo';
+
+// SETTINGS
+// Contient les variables sur les polices, les définitions de couleurs, les définitions de  grandeurs,   etc.
+@import 'settings/colors';
+@import 'settings/easing';
+@import 'settings/fonts';
+@import 'settings/dimensions';
+
+// GENERIC
+// Permet de réinitialiser les CSS et de changer le modèle de boîte en box-sizing: border-box
+@import 'generic/normalize';
+@import 'generic/reset';
+
+// ELEMENTS
+// Modification des styles généraux de la page. Ce sont les styles qui seront généralement hérités par les éléments de la page.
+@import 'elements/body';
+@import 'elements/headings';
+@import 'elements/links';
+@import 'elements/wrapper';
+@import 'elements/separateur';
+
+// COMPONENTS
+// Composants d'interface utilisateur spécifiques.
+// C’est là que la majorité de notre travail a lieu.
+@import '../../node_modules/swiper/swiper-bundle';
+@import 'components/icons';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/card';
+@import 'components/bouton';
+@import 'components/hero';
+@import 'components/limitebtn';
+@import 'components/carousel';
+@import 'components/bloc';
+@import 'components/faq';
+@import 'components/videos';
+@import 'components/formulaire';
+@import 'components/scrolly';
+// UTILITIES
+@import 'utilities/layout';
